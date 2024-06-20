@@ -31,13 +31,13 @@ public class LibroController {
 
 	@PostMapping("/")
 
-	public ResponseEntity<Object> save (@ModelAttribute("Libro") Libro Libro){
+	public ResponseEntity<Object> save (@RequestBody Libro Libro){
 
-		/*List<Libro> libros = LibroService.filtroIngresoLibro(Libro.getTitulo());
+		List<Libro> libros = LibroService.filtroIngresoLibro(Libro.getTitulo());
 		if (!libros.isEmpty()) {
 			return new ResponseEntity<>("El título del libro ya se encuentra registrado", HttpStatus.BAD_REQUEST);
 		}
-		 */
+		 
 		if (Libro.getTitulo().isEmpty()) {
 			return new ResponseEntity<>("El título del libro es obligatorio", HttpStatus.BAD_REQUEST);
 		}
